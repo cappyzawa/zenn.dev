@@ -1,5 +1,5 @@
 ---
-title: "EC2 で稼働していた Redash を段階的に ECS に移行した話"
+title: "GitHub Actions Self-Hosted Runner + CodeBuild で EKS に安全にアクセス"
 emoji: "🍣"
 type: "tech"
 topics: ["AWS", "EKS", "CodeBuild", "CircleCI"]
