@@ -21,7 +21,7 @@ Pull Request で k8s 関連のファイルの更新があれば CI として EKS
 費用を抑えつつ、CI ジョブの実行漏れを防ぐ手段はないものかと模索していたところ、GitHub Actions Self-Hosted Runner + CodeBuild に白羽の矢がたちました。  
 CircleCI でのこれまでのジョブ実行時間を参考に Pull Request 更新の都度ビルドされる前提での試算を行いましたが、弊社の利用状況では移行した方が IP ranges 機能の利用がなくなる分金銭的コスト面は有利でした。
 
-本稿では GitHub Actions Self-Hosted Runner + CodeBuild で EKS に安全にアクセスする環境を構築した方法を紹介します。
+本稿では GitHub Actions Self-Hosted Runner + CodeBuild で EKS に安全にアクセスする環境を構築した手順を紹介します。
 
 ## 構成の Before/After
 
@@ -84,19 +84,18 @@ name: K8s Dryrun
 on: [pull_request]
 
 jobs:
+  # k8s 関連のファイルに変更が含まれる場合のみ CodeBuild を利用するため。
+  # 変更のあった Region の CodeBuild しか実行しないようにする。
   changes:
     runs-on: ubuntu-22.04
-    # Required permissions
     permissions:
       pull-requests: read
     outputs:
-      # Expose matched filters as job 'packages' output variable
       staging: ${{ steps.filter.outputs.staging }}
       production: ${{ steps.filter.outputs.production }}
       in-production: ${{ steps.filter.outputs.in-production }}
       kr-production: ${{ steps.filter.outputs.kr-production }}
     steps:
-      # For pull requests it's not necessary to checkout the code
       - uses: dorny/paths-filter@v3
         id: filter
         with:
