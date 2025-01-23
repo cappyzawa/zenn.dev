@@ -38,7 +38,7 @@ CI ジョブの移行前、移行後の構成の概要は以下です。
 
 上図の After の状態を構築します。より詳細化したものが下図です。
 
-![](https://storage.googleapis.com/zenn-user-upload/09fa9b9e8c42-20250123.png)
+![](https://storage.googleapis.com/zenn-user-upload/01472347dfbc-20250123.png)
 
 TROCCO は韓国[^2]、インド[^3]でも利用可能です。 
 それぞれの Region で VPC があり、その上に EKS Cluster が存在しています。  
