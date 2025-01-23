@@ -1,6 +1,6 @@
 ---
 title: "GitHub Actions Self-Hosted Runner + CodeBuild でマルチリージョンの EKS に安全にアクセス"
-emoji: "🍣"
+emoji: "🌍"
 type: "tech"
 topics: ["AWS", "EKS", "CodeBuild", "GitHubActions"]
 published: false
@@ -38,7 +38,7 @@ CI ジョブの移行前、移行後の構成の概要は以下です。
 
 上図の After の状態を構築します。より詳細化したものが下図です。
 
-![](https://storage.googleapis.com/zenn-user-upload/60e0e768e59b-20250118.png)
+![](https://storage.googleapis.com/zenn-user-upload/09fa9b9e8c42-20250123.png)
 
 TROCCO は韓国[^2]、インド[^3]でも利用可能です。 
 それぞれの Region で VPC があり、その上に EKS Cluster が存在しています。  
@@ -62,7 +62,7 @@ Connection の作成方法は [GitHub への接続を作成する \- デベロ�
 CodeBuild のビルド環境用の Private Subnet/Security Group をそれぞれ新たに作成し、その Security Group から EKS Control Plane の Security Group へのアクセスを許可します。
 
 CodeBuild から Private Subnet に対してアクセスするためには、ビルド環境を VPC 上に作成する必要があります。  
-CodeBuild のビルド用のコンピューティングリソースとして、EC2・Lambda が選択可能ですが、特定の VPC 常で動かすためには EC2[^4] を利用します。  
+CodeBuild のビルド用のコンピューティングリソースとして、EC2・Lambda が選択可能ですが、特定の VPC 上で動かすためには EC2[^4] を利用します。  
 VPC、Subnet、Security Group を指定し、ビルドプロジェクトを作成します。  
 ビルドプロジェクト作成時、前項で作成した Connection を利用すると Private リポジトリの参照も可能になります。  
 ビルドプロジェクトの作成方法は [AWS CodeBuild でのビルドプロジェクトの作成 \- AWS CodeBuild](https://docs.aws.amazon.com/ja_jp/codebuild/latest/userguide/create-project.html) をご覧ください。
