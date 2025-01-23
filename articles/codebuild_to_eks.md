@@ -3,7 +3,7 @@ title: "GitHub Actions Self-Hosted Runner + CodeBuild でマルチリージョ�
 emoji: "🌍"
 type: "tech"
 topics: ["AWS", "EKS", "CodeBuild", "GitHubActions"]
-published: false
+published: true
 publication_name: "primenumber"
 ---
 
