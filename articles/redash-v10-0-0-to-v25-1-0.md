@@ -3,7 +3,7 @@ title: "Redash v10.0.0 から v25.1.0 に大幅アップグレード"
 emoji: "📈"
 type: "tech"
 topics: ["AWS", "Redash", "ECS"]
-published: false
+published: true
 publication_name: "primenumber"
 ---
 
